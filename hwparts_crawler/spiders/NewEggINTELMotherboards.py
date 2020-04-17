@@ -114,7 +114,15 @@ class NeweggintelmotherboardsSpider(scrapy.Spider):
     def find_element_content(self, response, element):
         specification_element = response.css('div#detailSpecContent div#Specs >fieldset')
 
-        xpath_query = f'//dt[text()="{element}"]/parent::dl//dd/text()'
+        xpath_query_contains_anchor_tag = f'//dt[a[text()="{element}"]]'
+        xpath_query = ''
+
+        anchor_tag_element = specification_element.xpath(xpath_query_contains_anchor_tag).get(default='')
+        if(anchor_tag_element == ''):
+            xpath_query = f'//dt[text()="{element}"]/parent::dl//dd/text()'
+        else:
+            xpath_query = f'//dt[a[text()="{element}"]]/parent::dl//dd/text()'
+            pass
 
         return specification_element.xpath(xpath_query).get(default='')
 
