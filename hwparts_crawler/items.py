@@ -60,3 +60,43 @@ class MotherboardsItem(scrapy.Item):
     order = scrapy.Field()
     
     pass
+
+class ProcessorsItem(scrapy.Item):
+
+    # model
+    brand = scrapy.Field()
+    series = scrapy.Field()
+    name = scrapy.Field()
+    model = scrapy.Field()
+    
+    # details
+    cpu_socket_type = scrapy.Field()
+    core_name = scrapy.Field()
+    number_of_cores = scrapy.Field()
+    number_of_threads = scrapy.Field()
+    operating_frequency = scrapy.Field()
+    max_turbo_frequency = scrapy.Field()
+    l3_cache = scrapy.Field()
+    manufacturing_tech = scrapy.Field()
+    sixtyfour_bit_support = scrapy.Field()
+    hyper_threading_support = scrapy.Field()
+    memory_types = scrapy.Field()
+    memory_channel = scrapy.Field()
+    virtualization_technology_support = scrapy.Field()
+    integrated_graphics = scrapy.Field()
+    graphics_base_frequency = scrapy.Field()
+    graphics_max_dynamic_frequency = scrapy.Field()
+    pci_express_revision = scrapy.Field()
+    max_number_of_pci_express_lanes = scrapy.Field()
+    thermal_design_power = scrapy.Field()
+    cooling_device = scrapy.Field()
+
+    # informations
+    platform_id = scrapy.Field()
+    image_url = scrapy.Field()
+    url = scrapy.Field()
+    platform = scrapy.Field()
+    order = scrapy.Field()
+    
+
+    pass
