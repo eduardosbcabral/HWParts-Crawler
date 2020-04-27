@@ -6,7 +6,7 @@ import json
 
 parser = ParserBS()
 
-start_url = 'http://www.newegg.com/AMD-Motherboards/SubCategory/ID-22/Page-1?PageSize=36'
+start_url = 'http://www.newegg.com/AMD-Motherboards/SubCategory/ID-22/Page-1?PageSize=96'
 
 outputfilename = 'motherboards_amd.json'
 
