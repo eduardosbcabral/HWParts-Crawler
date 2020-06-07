@@ -19,7 +19,7 @@ class ParserBS():
 
                 specifications.update({
                     'platform_id': self.get_platform_id(url),
-                    'image_url': self.get_image(page),
+                    'images_urls': self.get_images(page),
                     'url': url,
                     'platform': 'NewEgg',
                     'item_order': self.item_order,
@@ -74,8 +74,12 @@ class ParserBS():
         splitted = url.split('/')
         return splitted[len(splitted)-1]
 
-    def get_image(self, response):
-        return response.select('div.objImages span.mainSlide img')[0].attrs['src']
+    def get_images(self, response):
+        images_elements = response.select('div.objImages ul.navThumbs img')
+        images = []
+        for image_element in images_elements:
+            images.append(image_element.attrs['src'].replace('CompressAll35', ''))
+        return images
 
     def get_all_components(self, response):
         components = response.select('.items-view>.item-container:not(.is-feature-item)')
